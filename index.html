@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nahobinoco · Projekte</title>
+<meta name="description" content="Projekte von Nahobino: eine TV App, ein Coach für das One Piece Kartenspiel, ein Spielenachbau und Helfer für den Alltag.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#17151a">
+<link rel="canonical" href="https://projekte.nahobinoco.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://projekte.nahobinoco.com/">
+<meta property="og:title" content="nahobinoco · Projekte">
+<meta property="og:description" content="Projekte von Nahobino: eine TV App, ein Coach für das One Piece Kartenspiel, ein Spielenachbau und Helfer für den Alltag.">
+<meta property="og:image" content="https://projekte.nahobinoco.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://projekte.nahobinoco.com/assets/img/og-image.png">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/host-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/tweaks.css">
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<!--
+THESIS: Die Projekte als Spielkarten im Stil des One Piece Kartenspiels, ausgeteilt als Starthand; verweigert das übliche Raster aus gleichen Projektkarten mit Bild und zwei Sätzen.
+OWN-WORLD: heller TE Grund #f4f3ef, Spielmatte als dunkles Band #17151a, weiße Karten mit Tintenrahmen, null Rundungen, Host Grotesk und Spline Sans Mono, Schlüsselwörter in dunklen Mono Chips, Hanko Rot #c8361f nur für Statuslicht läuft, Linkstrich und den Punkt im Logo.
+STORY: Freunde und Familie sehen auf einen Blick, was gebaut wurde, was läuft und was noch Baustelle ist; wer eine Karte antippt, springt zu ihrem Abschnitt, wo dieselbe Karte neben dem vollen Text liegt, mit Fotos bei fertigen Projekten und dem Link, wo es öffentlich ist.
+FIRST VIEWPORT: Logo oben links, H1 ohne Anzahl groß links, Einstieg rechts, darunter über die volle Breite die Spielmatte mit den aufgefächerten Karten, die beim Laden einmal verdeckt ausgeteilt und aufgedeckt werden; Handy: wischbarer Stapel.
+FORM: Kartendeck, Platz 1 der zweiten Liste (Favorit nach einmal neu würfeln), Seed c46d0d17.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+-->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bild-akcije" viewBox="0 0 120 90"><path d="M24 34h72l-8 34H32z"/><path d="M38 34l10-16M82 34L72 18"/><path d="M44 46v12M60 46v12M76 46v12"/><path d="M14 30h10"/></symbol>
+    <symbol id="bild-metacoach" viewBox="0 0 120 90"><path d="M26 20h28v40H26z"/><path d="M50 28l26-6 9 39-26 6"/><path d="M34 70h52"/><path d="M78 70l8-6M86 70l-8 6" /></symbol>
+    <symbol id="bild-fiesta" viewBox="0 0 120 90"><path d="M22 72h76"/><path d="M30 72V50h14v22M53 72V28h14v44M76 72V40h14v32"/><path d="M60 14v6M56 17h8"/></symbol>
+    <symbol id="bild-lgtv" viewBox="0 0 120 90"><path d="M16 18h70v44H16z"/><path d="M16 26h70"/><path d="M42 62v8M30 72h26"/><path d="M96 34c5 6 5 14 0 20M104 28c9 10 9 22 0 32"/></symbol>
+    <symbol id="bild-jugoflix" viewBox="0 0 120 90"><path d="M18 16h84v52H18z"/><path d="M54 30v24l20-12z"/><path d="M48 68l-8 8M72 68l8 8"/></symbol>
+    <symbol id="bild-nfs" viewBox="0 0 120 90"><path d="M12 58h96"/><path d="M18 52l6-12 20-8h30l14 10 16 4v6"/><circle cx="36" cy="54" r="7"/><circle cx="86" cy="54" r="7"/><path d="M48 32l4 10h26"/><path d="M8 40h12M4 46h10"/></symbol>
+  </defs>
+</svg>
+
+<header class="kopf">
+  <a class="logo" href="#oben" aria-label="nahobinoco, zum Seitenanfang"><img src="assets/img/logo-farbig.svg" alt="nahobino·co" width="292" height="43"></a>
+</header>
+
+<main id="oben">
+  <section class="einstieg">
+    <h1>Meine Projekte.</h1>
+    <p class="einstieg-text">Hier sammle ich meine Projekte: Programme für Dinge, die mich im Alltag stören oder die mich interessieren. Manche laufen jeden Tag, andere sind noch Baustelle. Wo man etwas öffnen kann, steht der Link dabei.</p>
+  </section>
+
+  <section class="matte" aria-label="Die Projekte als Karten">
+    <ol class="hand" data-hand style="--anzahl:6">
+      <li class="handkarte" style="--i:0"><a href="#akcije" data-karte="akcije" aria-label="akcije hrastin">
+        <div class="karte" data-status="laeuft"><div class="seite vorn">
+          <span class="status-kreis" aria-hidden="true"></span><span class="plattform">Web</span>
+          <div class="bildfeld"><svg aria-hidden="true"><use href="#bild-akcije"/></svg></div>
+          <p class="name">akcije hrastin</p><p class="typ">Familie / Kroatien</p>
+          <p class="effekt"><span class="wort">[Täglich]</span> Supermarktaktionen rund um Hrastin auf einer Seite, für meinen Vater.</p>
+        </div><div class="seite hinten" aria-hidden="true"></div></div></a></li>
+      <li class="handkarte" style="--i:1"><a href="#metacoach" data-karte="metacoach" aria-label="Metacoach">
+        <div class="karte" data-status="laeuft"><div class="seite vorn">
+          <span class="status-kreis" aria-hidden="true"></span><span class="plattform">Web</span>
+          <div class="bildfeld"><svg aria-hidden="true"><use href="#bild-metacoach"/></svg></div>
+          <p class="name">Metacoach</p><p class="typ">OPTCG / Training</p>
+          <p class="effekt"><span class="wort">[Nachts]</span> Ein Trainer für das One Piece Kartenspiel, der mir für jeden Zug den besten Spielzug zeigt.</p>
+        </div><div class="seite hinten" aria-hidden="true"></div></div></a></li>
+      <li class="handkarte" style="--i:2"><a href="#fiesta" data-karte="fiesta" aria-label="Letacios Fiesta">
+        <div class="karte" data-status="laeuft"><div class="seite vorn">
+          <span class="status-kreis" aria-hidden="true"></span><span class="plattform">Web</span>
+          <div class="bildfeld"><svg aria-hidden="true"><use href="#bild-fiesta"/></svg></div>
+          <p class="name">Letacios Fiesta</p><p class="typ">OPTCG / Statistik</p>
+          <p class="effekt"><span class="wort">[Jeden Morgen]</span> Statistiken zum One Piece Kartenspiel: welche Decks gewinnen und gegen wen.</p>
+        </div><div class="seite hinten" aria-hidden="true"></div></div></a></li>
+      <li class="handkarte" style="--i:3"><a href="#lgtv" data-karte="lgtv" aria-label="LGTV Companion">
+        <div class="karte" data-status="laeuft"><div class="seite vorn">
+          <span class="status-kreis" aria-hidden="true"></span><span class="plattform">Mac</span>
+          <div class="bildfeld"><svg aria-hidden="true"><use href="#bild-lgtv"/></svg></div>
+          <p class="name">LGTV Companion</p><p class="typ">Zuhause / Mac</p>
+          <p class="effekt"><span class="wort">[Beim Einschalten]</span> Eine Mac App, die meinen LG Fernseher wie einen echten Monitor benimmt.</p>
+        </div><div class="seite hinten" aria-hidden="true"></div></div></a></li>
+      <li class="handkarte" style="--i:4"><a href="#jugoflix" data-karte="jugoflix" aria-label="JugoFlix">
+        <div class="karte" data-status="zuhause"><div class="seite vorn">
+          <span class="status-kreis" aria-hidden="true"></span><span class="plattform">TV</span>
+          <div class="bildfeld"><svg aria-hidden="true"><use href="#bild-jugoflix"/></svg></div>
+          <p class="name">JugoFlix</p><p class="typ">Zuhause / Fernsehen</p>
+          <p class="effekt"><span class="wort">[Fernbedienung]</span> Unsere Film und Serien App für die Fernseher zu Hause.</p>
+        </div><div class="seite hinten" aria-hidden="true"></div></div></a></li>
+      <li class="handkarte" style="--i:5"><a href="#nfs" data-karte="nfs" aria-label="NFS Most Wanted in Unreal Engine 5">
+        <div class="karte" data-status="arbeit"><div class="seite vorn">
+          <span class="status-kreis" aria-hidden="true"></span><span class="plattform">UE5</span>
+          <div class="bildfeld"><svg aria-hidden="true"><use href="#bild-nfs"/></svg></div>
+          <p class="name">NFS Most Wanted</p><p class="typ">Spiel / Nachbau</p>
+          <p class="effekt"><span class="wort">[Original]</span> Need for Speed Most Wanted von 2005, nachgebaut in Unreal Engine 5.</p>
+        </div><div class="seite hinten" aria-hidden="true"></div></div></a></li>
+    </ol>
+    <p class="legende"><span class="licht laeuft"></span>läuft <span class="licht zuhause"></span>läuft zu Hause <span class="licht arbeit"></span>in Arbeit</p>
+  </section>
+
+  <article class="projekt" id="akcije" data-projekt>
+    <div class="projekt-text">
+      <h2>akcije hrastin</h2>
+      <p class="einzeiler">Die Supermarktaktionen rund um Hrastin auf einer Seite, für meinen Vater.</p>
+      <p>Mein Vater sucht jeden Tag die Angebote von Konzum, Lidl, Kaufland, Plodine und Spar zusammen. Die Seite holt sie zweimal am Tag aus den Preislisten, die die Ketten in Kroatien veröffentlichen müssen, und zeigt nur die Filialen in Osijek und Čepin. Sie ist auf Kroatisch, mit großer Schrift und einer Merkliste für seine Produkte. In der Suche stehen auch alle übrigen Preise, rund 92.000 Artikel.</p>
+      <p class="zeile"><span class="licht laeuft"></span>läuft · Web</p>
+      <a class="oeffnen" href="https://akcije.nahobinoco.com/">Seite öffnen<svg class="pfeil" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+    </div>
+    <div class="projekt-bilder zwei">
+      <figure class=""><picture><source srcset="assets/img/projekte/akcije-1.webp" type="image/webp"><img src="assets/img/projekte/akcije-1.jpg" alt="akcije hrastin am Computer: Aktionen nach Warengruppen, Filter nach Kette" width="1600" height="1000" loading="lazy" decoding="async"></picture></figure>
+      <figure class="hoch"><picture><source srcset="assets/img/projekte/akcije-2.webp" type="image/webp"><img src="assets/img/projekte/akcije-2.jpg" alt="akcije hrastin auf dem Handy" width="600" height="1298" loading="lazy" decoding="async"></picture></figure>
+    </div>
+  </article>
+
+  <article class="projekt" id="metacoach" data-projekt>
+    <div class="projekt-text">
+      <h2>Metacoach</h2>
+      <p class="einzeiler">Ein Trainer für das One Piece Kartenspiel, der mir für jeden Zug den besten Spielzug zeigt.</p>
+      <p>Metacoach kennt die Decks, die gerade oft gespielt werden, und rechnet für meinen Leader durch, was in welchem Zug am meisten bringt. Nachts lernt er aus den Wiederholungen starker Partien. Meine eigenen Partien schaut er sich auch an und zeigt, wo ich anders hätte spielen sollen. Auf dem Handy gibt es einen Spickzettel zum Nachschlagen.</p>
+      <p class="zeile"><span class="licht laeuft"></span>läuft, wird weiter ausgebaut · Web</p>
+      <p class="hinweis">Privat, nur mit Zugang.</p>
+    </div>
+  </article>
+
+  <article class="projekt" id="fiesta" data-projekt>
+    <div class="projekt-text">
+      <h2>Letacios Fiesta</h2>
+      <p class="einzeiler">Statistiken zum One Piece Kartenspiel: welche Decks gewinnen und gegen wen.</p>
+      <p>Fiesta sammelt Decklisten, Ergebnisse und die Rangliste der Online Ladder und macht daraus Tabellen: wer gegen wen gewinnt, welche Decks oben stehen, wie sich ein Spieler entwickelt. Partien lassen sich Zug für Zug nachspielen. Die Rangliste kommt jeden Morgen automatisch dazu.</p>
+      <p class="zeile"><span class="licht laeuft"></span>läuft · Web</p>
+      <p class="hinweis">Privat, nur mit Zugang.</p>
+    </div>
+    <div class="projekt-bilder drei">
+      <figure class="gross"><picture><source srcset="assets/img/projekte/fiesta-1.webp" type="image/webp"><img src="assets/img/projekte/fiesta-1.jpg" alt="Matchup Matrix: welcher Leader gegen welchen gewinnt, in Prozent" width="1600" height="1000" loading="lazy" decoding="async"></picture></figure>
+      <figure class=""><picture><source srcset="assets/img/projekte/fiesta-2.webp" type="image/webp"><img src="assets/img/projekte/fiesta-2.jpg" alt="Decklisten eines Leaders mit Siegquote, Spielername verpixelt" width="1600" height="1000" loading="lazy" decoding="async"></picture></figure>
+      <figure class=""><picture><source srcset="assets/img/projekte/fiesta-3.webp" type="image/webp"><img src="assets/img/projekte/fiesta-3.jpg" alt="Replay einer Partie Zug für Zug, Spielernamen verpixelt" width="1600" height="1000" loading="lazy" decoding="async"></picture></figure>
+    </div>
+  </article>
+
+  <article class="projekt" id="lgtv" data-projekt>
+    <div class="projekt-text">
+      <h2>LGTV Companion</h2>
+      <p class="einzeiler">Eine Mac App, die meinen LG Fernseher wie einen echten Monitor benimmt.</p>
+      <p>Ich nutze einen LG OLED als Bildschirm am Mac. Die App sitzt in der Menüleiste, schaltet den Fernseher mit dem Mac ein und aus und regelt die Lautstärke über die Tasten der Tastatur. Sie steuert auch die Edifier Lautsprecher mit Klangvoreinstellungen und Nachtmodus. Der Quelltext ist offen auf GitHub.</p>
+      <p class="zeile"><span class="licht laeuft"></span>läuft, Version 1.2.0 · Mac</p>
+      <a class="oeffnen" href="https://github.com/jolejolevv-coder/LGTVCompanionMac">Auf GitHub ansehen<svg class="pfeil" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+    </div>
+  </article>
+
+  <article class="projekt" id="jugoflix" data-projekt>
+    <div class="projekt-text">
+      <h2>JugoFlix</h2>
+      <p class="einzeiler">Unsere Film und Serien App für die Fernseher zu Hause.</p>
+      <p>Eine App für den Samsung und den LG Fernseher und den Browser. Man sucht einen Film oder eine Serie, liest die Beschreibung und startet die Wiedergabe mit der Fernbedienung. Jeder in der Familie hat sein eigenes Profil.</p>
+      <p class="zeile"><span class="licht zuhause"></span>läuft zu Hause · TV</p>
+      <p class="hinweis">Läuft nur zu Hause.</p>
+    </div>
+    <div class="projekt-bilder paar">
+      <figure class=""><picture><source srcset="assets/img/projekte/jugoflix-1.webp" type="image/webp"><img src="assets/img/projekte/jugoflix-1.jpg" alt="JugoFlix Startseite mit Vorschau und Top 10" width="1600" height="1000" loading="lazy" decoding="async"></picture></figure>
+      <figure class=""><picture><source srcset="assets/img/projekte/jugoflix-2.webp" type="image/webp"><img src="assets/img/projekte/jugoflix-2.jpg" alt="JugoFlix Detailansicht eines Films mit Sprache und Beschreibung" width="1600" height="1000" loading="lazy" decoding="async"></picture></figure>
+    </div>
+  </article>
+
+  <article class="projekt" id="nfs" data-projekt>
+    <div class="projekt-text">
+      <h2>NFS Most Wanted in Unreal Engine 5</h2>
+      <p class="einzeiler">Need for Speed Most Wanted von 2005, nachgebaut in Unreal Engine 5.</p>
+      <p>Die Stadt Rockport, die Autos und die Rennen kommen aus den Daten des Originalspiels. Die Fahrphysik und das Verhalten der Gegner wurden aus dem Programmcode des Originals gelesen und nachgebaut. Polizei, Nitro, Schaden und mehrere Rennarten laufen schon. Fertig ist es noch lange nicht.</p>
+      <p class="zeile"><span class="licht arbeit"></span>in Arbeit · Unreal Engine 5</p>
+      <p class="hinweis">Bleibt privat, die Originaldaten gehören EA.</p>
+    </div>
+  </article>
+</main>
+
+<footer class="fuss">
+  <div class="fuss-innen">
+    <img src="assets/img/logo-negativ.svg" alt="nahobino·co" width="219" height="32">
+    <p>Gebaut mit Claude.</p>
+  </div>
+</footer>
+</body>
+</html>

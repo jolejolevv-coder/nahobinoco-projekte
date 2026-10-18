@@ -1,0 +1,6 @@
+# Private Projektseite, Suchmaschinen sollen sie nicht aufnehmen.
+# Das Verbot steht als meta robots noindex in index.html. Crawler muessen die Seite
+# dafuer lesen duerfen, deshalb ist hier nichts gesperrt.
+
+User-agent: *
+Allow: /

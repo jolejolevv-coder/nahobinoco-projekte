@@ -1,0 +1,402 @@
+/* nahobinoco · Kartendeck
+   Grundwelt teenage engineering, Palette Hanko Rot. Null Rundungen, keine Schatten
+   außer der flachen Tiefe der Spielmatte. Rot nur für: läuft, Linkstrich, Logo. */
+
+@font-face {
+  font-family: "Host Grotesk";
+  src: url("../fonts/host-grotesk.woff2") format("woff2");
+  font-weight: 300 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Spline Sans Mono";
+  src: url("../fonts/spline-sans-mono.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+:root {
+  --grund: #f4f3ef;
+  --tinte: #121212;
+  --band: #17151a;
+  --band-hell: #221f26;
+  --linie: #e0ddd6;
+  --leise: #5e5b55;
+  --leise-auf-band: #b9b4ab;
+  --rot: #c8361f;
+  --karte: #ffffff;
+  --bildgrund: #ebe8e1;
+
+  --schrift: "Host Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --mono: "Spline Sans Mono", ui-monospace, "SF Mono", monospace;
+
+  /* Abstände im Rhythmus der Vorlage: 15, 22, 33, 66 */
+  --s1: 8px;
+  --s2: 15px;
+  --s3: 22px;
+  --s4: 33px;
+  --s5: 66px;
+  --rand: 16px;
+  --breite: 1200px;
+
+  /* Regler für Phase 6 */
+  --h1-groesse: clamp(40px, 6.2vw, 84px);
+  --einstieg-oben: clamp(32px, 5vw, 72px);
+  --karte-breite: clamp(150px, 15vw, 210px);
+  --faecher-winkel: 5deg;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--grund);
+  color: var(--tinte);
+  font: 400 17px/1.55 var(--schrift);
+  font-kerning: normal;
+}
+::selection { background: var(--tinte); color: var(--grund); }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--rot); outline-offset: 3px; }
+
+/* Kopf */
+.kopf {
+  max-width: var(--breite);
+  margin: 0 auto;
+  padding: var(--s3) var(--rand);
+  border-bottom: 1px solid var(--linie);
+}
+.logo { display: inline-block; }
+.logo img { display: block; height: 30px; width: auto; }
+
+/* Einstieg */
+.einstieg {
+  max-width: var(--breite);
+  margin: 0 auto;
+  padding: var(--einstieg-oben) var(--rand) var(--s4);
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: var(--s3) var(--s5);
+  align-items: end;
+}
+h1 {
+  font-size: var(--h1-groesse);
+  font-weight: 300;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  margin: 0;
+  max-width: 12ch;
+  text-wrap: balance;
+}
+.einstieg-text {
+  max-width: 40ch;
+  margin: 0 0 .5em;
+  font-size: 18px;
+  color: var(--leise);
+}
+
+/* Spielmatte mit der Hand */
+.matte {
+  background: var(--band);
+  color: var(--grund);
+  padding: var(--s4) var(--rand) var(--s3);
+  margin-bottom: -2px;
+  overflow: hidden;
+}
+.hand {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: var(--breite);
+  height: calc(var(--karte-breite) * 88 / 63 + 84px);
+  position: relative;
+}
+.handkarte {
+  position: absolute;
+  left: 50%;
+  bottom: 64px;
+  width: var(--karte-breite);
+  --mitte: calc(var(--i) - (var(--anzahl, 6) - 1) / 2);
+  /* Abstand schrumpft, wenn neue Karten dazukommen, damit die Hand in die Breite passt */
+  --abstand: min(var(--karte-breite) * .86, (min(100vw, var(--breite)) - 2 * var(--rand) - var(--karte-breite)) / (var(--anzahl, 6) - 1));
+  transform-origin: 50% 160%;
+  transform:
+    translateX(calc(-50% + var(--mitte) * var(--abstand)))
+    rotate(calc(var(--mitte) * var(--faecher-winkel)))
+    translateY(calc(var(--mitte) * var(--mitte) * 4px));
+  transition: transform .35s cubic-bezier(.2,.8,.2,1);
+}
+.handkarte a { display: block; text-decoration: none; color: var(--tinte); }
+.handkarte:hover, .handkarte:focus-within {
+  z-index: 10;
+  transform:
+    translateX(calc(-50% + var(--mitte) * var(--abstand)))
+    rotate(calc(var(--mitte) * var(--faecher-winkel) * .4))
+    translateY(-28px) scale(1.06);
+}
+.hand.hat-fokus .handkarte:not(:hover):not(:focus-within) .karte { filter: brightness(.55); }
+.hand.hat-fokus .handkarte .karte { transition: filter .25s ease; }
+
+.legende {
+  max-width: var(--breite);
+  margin: var(--s4) auto 0;
+  font: 400 13px/1 var(--mono);
+  color: var(--leise-auf-band);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s3);
+  align-items: center;
+}
+.legende .licht { margin-right: -14px; }
+
+/* Die Karte, Seitenverhältnis 63 zu 88 wie eine echte Spielkarte */
+.karte {
+  position: relative;
+  aspect-ratio: 63 / 88;
+  transform-style: preserve-3d;
+  transition: transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.seite {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.vorn {
+  background: var(--karte);
+  border: 1px solid var(--tinte);
+  padding: 7% 7% 6%;
+  display: flex;
+  flex-direction: column;
+  container-type: inline-size;
+}
+.hinten {
+  transform: rotateY(180deg);
+  background: var(--band) url("../img/zeichen-negativ.svg") center / 42% no-repeat;
+  border: 1px solid var(--grund);
+  outline: 6px solid var(--band);
+  outline-offset: -12px;
+}
+.verdeckt .karte { transform: rotateY(180deg); }
+
+.status-kreis {
+  position: absolute;
+  top: 5%;
+  left: 6%;
+  width: 15cqw;
+  height: 15cqw;
+  border-radius: 50%;
+  border: 1.5px solid var(--tinte);
+  background: var(--karte);
+  box-shadow: 0 0 0 2px var(--karte);
+  z-index: 2;
+}
+[data-status="laeuft"] .status-kreis { background: var(--rot); border-color: var(--rot); }
+[data-status="zuhause"] .status-kreis { background: var(--tinte); }
+[data-status="arbeit"] .status-kreis { background: repeating-linear-gradient(135deg, var(--tinte) 0 1.5px, transparent 1.5px 4px); }
+.plattform {
+  position: absolute;
+  top: 6.5%;
+  right: 7%;
+  font: 500 8cqw/1 var(--mono);
+  letter-spacing: .02em;
+  z-index: 2;
+}
+.bildfeld {
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 63 / 40;
+  min-height: 0;
+  position: relative;
+  background: var(--bildgrund);
+  border: 1px solid var(--tinte);
+  margin-top: 13%;
+  display: grid;
+  place-items: center;
+}
+.bildfeld svg {
+  position: absolute;
+  inset: 9%;
+  width: 82%;
+  height: 82%;
+  fill: none;
+  stroke: var(--tinte);
+  stroke-width: 2.4;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+.name {
+  margin: 6% 0 0;
+  font: 500 11.5cqw/1.05 var(--schrift);
+  letter-spacing: -.01em;
+}
+.typ {
+  margin: 2% 0 0;
+  font: 400 6.4cqw/1.2 var(--mono);
+  color: var(--leise);
+}
+.effekt {
+  margin: 4% 0 0;
+  padding-top: 4%;
+  border-top: 1px solid var(--tinte);
+  font: 400 6.4cqw/1.28 var(--schrift);
+}
+.wort {
+  display: inline-block;
+  background: var(--tinte);
+  color: var(--karte);
+  font: 500 5.6cqw/1 var(--mono);
+  padding: 1.4% 2.6%;
+  margin-right: 1%;
+  transform: translateY(-.08em);
+}
+
+/* Lichter für Status */
+.licht {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  margin-right: 8px;
+  vertical-align: -1px;
+}
+.licht.laeuft { background: var(--rot); border-color: var(--rot); }
+.licht.zuhause { background: currentColor; }
+.licht.arbeit { background: repeating-linear-gradient(135deg, currentColor 0 1.5px, transparent 1.5px 3.5px); }
+
+/* Projekte: je ein Bildschirm mit Luft, Karte links, Rückseitentext rechts */
+.projekt {
+  max-width: var(--breite);
+  margin: 0 auto;
+  padding: var(--s5) var(--rand);
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--s4) var(--s5);
+  align-items: center;
+  min-height: 86vh;
+  border-bottom: 1px solid var(--linie);
+  position: relative;
+}
+.projekt-karte {
+  width: min(100%, 340px);
+  justify-self: center;
+  position: relative;
+  z-index: 1;
+}
+.projekt-text { position: relative; z-index: 1; max-width: 60ch; }
+.projekt h2 {
+  font-size: clamp(32px, 4.6vw, 56px);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -.03em;
+  margin: 0 0 var(--s2);
+  text-wrap: balance;
+}
+.einzeiler { font-size: 21px; line-height: 1.4; margin: 0 0 var(--s3); }
+.projekt-text p { margin: 0 0 var(--s2); }
+.zeile {
+  font: 400 14px/1.4 var(--mono);
+  color: var(--leise);
+  margin-top: var(--s3) !important;
+}
+.hinweis { font: 400 14px/1.4 var(--mono); color: var(--leise); }
+.oeffnen {
+  display: inline-block;
+  margin-top: var(--s1);
+  font-weight: 500;
+  font-size: 18px;
+  text-decoration: underline;
+  text-decoration-color: var(--rot);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: text-underline-offset .2s ease;
+}
+.pfeil { width: .62em; height: .62em; margin-left: .35em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: square; vertical-align: .02em; }
+.oeffnen:hover { text-underline-offset: 9px; }
+
+/* Bildschirmfotos: randlos, nur mit Tintenlinie, ohne Innenabstand */
+.projekt-bilder {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: var(--s2);
+  position: relative;
+  z-index: 1;
+}
+.projekt-bilder figure { margin: 0; border: 1px solid var(--tinte); background: var(--band); }
+.projekt-bilder img { display: block; width: 100%; height: auto; }
+.projekt-bilder.zwei { grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); align-items: start; }
+.projekt-bilder.drei { grid-template-columns: 1fr 1fr; }
+.projekt-bilder.drei .gross { grid-column: 1 / -1; }
+.projekt-bilder.paar { grid-template-columns: 1fr 1fr; }
+
+/* Fuß */
+.fuss {
+  background: var(--band);
+  color: var(--grund);
+  padding: var(--s5) 0;
+}
+.fuss-innen {
+  max-width: var(--breite);
+  margin: 0 auto;
+  padding: 0 var(--rand);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s3);
+}
+.fuss img { height: 26px; width: auto; display: block; }
+.fuss p { margin: 0; font: 400 14px/1.4 var(--mono); color: var(--leise-auf-band); }
+
+/* Austeilen beim Laden: verdeckt von unten, dann aufdecken */
+.austeilen .handkarte {
+  transform: translateX(-50%) translateY(120%) rotate(0deg);
+}
+.austeilen .handkarte .karte { transform: rotateY(180deg); }
+
+/* Handy: Stapel zum Wischen statt Fächer */
+@media (max-width: 760px) {
+  :root { --karte-breite: 62vw; }
+  .matte { padding: var(--s4) 0 var(--s3); }
+  .hand {
+    height: auto;
+    display: flex;
+    gap: var(--s2);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: var(--s3) 19vw var(--s3);
+    scrollbar-width: none;
+  }
+  .hand::-webkit-scrollbar { display: none; }
+  .handkarte, .handkarte:hover, .handkarte:focus-within {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    flex: 0 0 var(--karte-breite);
+    scroll-snap-align: center;
+    transform: none;
+  }
+  .austeilen .handkarte { transform: translateY(40px); opacity: 0; }
+  .hand.hat-fokus .handkarte:not(:hover):not(:focus-within) .karte { filter: none; }
+  .legende { padding: 0 var(--rand); margin-top: var(--s2); }
+  .projekt {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: var(--s5) var(--rand);
+  }
+  .projekt-karte { width: 70vw; justify-self: center; }
+  .projekt-bilder.zwei { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .projekt-bilder.zwei figure:first-child { grid-column: 1 / -1; }
+  .projekt-bilder.zwei .hoch { grid-column: 1 / 2; }
+  .projekt-bilder.drei, .projekt-bilder.paar { grid-template-columns: 1fr; }
+  .einstieg { grid-template-columns: 1fr; }
+  .einstieg-text { font-size: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .handkarte, .karte, .oeffnen { transition: none !important; }
+  .austeilen .handkarte { transform: none !important; opacity: 1 !important; }
+  .austeilen .handkarte .karte { transform: none !important; }
+}
