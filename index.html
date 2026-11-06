@@ -41,6 +41,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     <symbol id="bild-metacoach" viewBox="0 0 120 90"><path d="M26 20h28v40H26z"/><path d="M50 28l26-6 9 39-26 6"/><path d="M34 70h52"/><path d="M78 70l8-6M86 70l-8 6" /></symbol>
     <symbol id="bild-fiesta" viewBox="0 0 120 90"><path d="M22 72h76"/><path d="M30 72V50h14v22M53 72V28h14v44M76 72V40h14v32"/><path d="M60 14v6M56 17h8"/></symbol>
     <symbol id="bild-lgtv" viewBox="0 0 120 90"><path d="M16 18h70v44H16z"/><path d="M16 26h70"/><path d="M42 62v8M30 72h26"/><path d="M96 34c5 6 5 14 0 20M104 28c9 10 9 22 0 32"/></symbol>
+    <symbol id="bild-winamp" viewBox="0 0 120 90"><path d="M14 14h92v34H14z"/><path d="M14 21h92"/><path d="M22 42v-6M27 42v-11M32 42v-8M37 42v-13M42 42v-5"/><path d="M52 34h46M52 42h30"/><path d="M14 54h92v24H14z"/><path d="M26 60v14M36 64v10M46 61v13M56 66v8M66 62v12M76 65v9M86 60v14M96 63v11"/></symbol>
     <symbol id="bild-jugoflix" viewBox="0 0 120 90"><path d="M18 16h84v52H18z"/><path d="M54 30v24l20-12z"/><path d="M48 68l-8 8M72 68l8 8"/></symbol>
   </defs>
 </svg>
@@ -56,7 +57,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   </section>
 
   <section class="matte" aria-label="Die Projekte als Karten">
-    <ol class="hand" data-hand style="--anzahl:5">
+    <ol class="hand" data-hand style="--anzahl:6">
       <li class="handkarte" style="--i:0"><a href="#akcije" data-karte="akcije" aria-label="akcije hrastin">
         <div class="karte" data-status="laeuft"><div class="seite vorn">
           <span class="status-kreis" aria-hidden="true"></span><span class="plattform">Web</span>
@@ -85,7 +86,14 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
           <p class="name">LGTV Companion</p><p class="typ">Zuhause / Mac</p>
           <p class="effekt"><span class="wort">[Beim Einschalten]</span> Eine Mac App, die meinen LG Fernseher wie einen echten Monitor benimmt.</p>
         </div><div class="seite hinten" aria-hidden="true"></div></div></a></li>
-      <li class="handkarte" style="--i:4"><a href="#jugoflix" data-karte="jugoflix" aria-label="JugoFlix">
+      <li class="handkarte" style="--i:4"><a href="#winamp" data-karte="winamp" aria-label="WinampMac">
+        <div class="karte" data-status="laeuft"><div class="seite vorn">
+          <span class="status-kreis" aria-hidden="true"></span><span class="plattform">Mac</span>
+          <div class="bildfeld"><svg aria-hidden="true"><use href="#bild-winamp"/></svg></div>
+          <p class="name">WinampMac</p><p class="typ">Musik / Mac</p>
+          <p class="effekt"><span class="wort">[Play]</span> Der klassische Winamp Player als echte Mac App, mit Skins und YouTube Music.</p>
+        </div><div class="seite hinten" aria-hidden="true"></div></div></a></li>
+      <li class="handkarte" style="--i:5"><a href="#jugoflix" data-karte="jugoflix" aria-label="JugoFlix">
         <div class="karte" data-status="zuhause"><div class="seite vorn">
           <span class="status-kreis" aria-hidden="true"></span><span class="plattform">TV</span>
           <div class="bildfeld"><svg aria-hidden="true"><use href="#bild-jugoflix"/></svg></div>
@@ -150,6 +158,17 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     <div class="projekt-bilder zwei">
       <figure class=""><picture><source srcset="assets/img/projekte/lgtv-1.webp" type="image/webp"><img src="assets/img/projekte/lgtv-1.jpg" alt="LGTV Companion Fenster mit Fernseher, Kopplung und Automatik, IP Adresse unkenntlich" width="1600" height="1179" loading="lazy" decoding="async"></picture></figure>
       <figure class="hoch"><picture><source srcset="assets/img/projekte/lgtv-2.webp" type="image/webp"><img src="assets/img/projekte/lgtv-2.jpg" alt="LGTV Companion in der Menüleiste: Fernseher, Edifier Lautsprecher und Bildschirme" width="640" height="1366" loading="lazy" decoding="async"></picture></figure>
+    </div>
+  </article>
+
+  <article class="projekt" id="winamp" data-projekt>
+    <div class="projekt-text">
+      <h2>WinampMac</h2>
+      <p class="einzeiler">Der klassische Winamp Player als echte Mac App, mit Skins und YouTube Music.</p>
+      <p>Die App sieht aus und bedient sich wie Winamp 2: Hauptfenster mit Visualizer, Equalizer mit Presets und Playlist, alle drei andockbar, einklappbar und auf doppelte Größe zu bringen. Alte Winamp Skins im .wsz Format zieht man einfach auf ein Fenster. Die Medientasten der Tastatur und das Kontrollzentrum steuern sie wie jeden anderen Player am Mac.</p>
+      <p>Neben eigenen Musikdateien spielt sie YouTube Music. Suche, Bibliothek und ein Radio, das nach einem Song passende weitere anhängt, liegen in einem vierten Fenster im Winamp Rahmen; gesteuert wird alles über das Hauptfenster. Sie ist eine native Mac App in Swift, kein Nachbau im Browser, und lässt sich als Standardplayer für MP3 und andere Formate einstellen.</p>
+      <p class="zeile"><span class="licht laeuft"></span>läuft, Version 0.2.0 · Mac</p>
+      <p class="hinweis">Nur für mich, weil sie die Originalgrafik von Winamp nutzt.</p>
     </div>
   </article>
 
